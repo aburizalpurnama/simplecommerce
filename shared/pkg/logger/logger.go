@@ -9,7 +9,7 @@ import (
 // New membuat zerolog.Logger dengan konfigurasi production-ready.
 // JSON format, ISO timestamp, level sesuai environment.
 func New(env string) (zerolog.Logger, error) {
-	// TODO: implementasi di Sprint 2
+	// TODO: implement in Sprint 2
 	// Contoh default return agar tidak error saat ini:
 	return zerolog.Nop(), nil
 }
