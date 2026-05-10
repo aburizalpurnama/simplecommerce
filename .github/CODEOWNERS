@@ -1,0 +1,27 @@
+# Format: [path pattern] [GitHub usernames]
+
+# Default owner untuk semua yang tidak ter-cover di bawah
+*                           @purnamar9@gmail.com
+
+# Setiap service punya owner-nya sendiri
+/services/user-service/     @purnamar9@gmail.com
+/services/product-service/  @purnamar9@gmail.com
+/services/order-service/    @purnamar9@gmail.com
+/services/payment-service/  @purnamar9@gmail.com
+/services/cart-service/     @purnamar9@gmail.com
+/services/inventory-service/ @purnamar9@gmail.com
+/services/notification-service/ @purnamar9@gmail.com
+/services/search-service/   @purnamar9@gmail.com
+
+# Shared code — review dari Tech Lead WAJIB
+/shared/                    @purnamar9@gmail.com
+
+# Infrastructure — hanya DevOps yang bisa approve
+/infrastructure/            @purnamar9@gmail.com
+/.github/                   @purnamar9@gmail.com
+
+# Frontend
+/frontend/                  @purnamar9@gmail.com
+
+# Proto definitions — breaking change detection wajib
+/shared/proto/              @purnamar9@gmail.com
