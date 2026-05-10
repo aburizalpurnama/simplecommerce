@@ -1,0 +1,35 @@
+# Go
+bin/
+*.exe
+*.test
+*.out
+coverage.out
+coverage.html
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfplan
+.terraform.lock.hcl  # Jangan ignore ini! Lock file harus di-commit
+# *.tfvars           # Uncomment HANYA jika tfvars berisi secrets
+# terraform.tfvars.example TIDAK di-ignore (template aman di-commit)
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Node (untuk frontend)
+node_modules/
+.next/
+dist/
