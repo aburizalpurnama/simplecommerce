@@ -1,0 +1,82 @@
+# =============================================================================
+# golangci-lint v2 configuration — SimpleCommerce
+# =============================================================================
+# Reference: https://golangci-lint.run/docs/product/migration-guide
+# =============================================================================
+version: "2"
+
+linters:
+  # Default set: standard, all, none, or fast
+  default: standard
+
+  # Enable additional linters beyond the standard set
+  # Note: gosimple, govet, ineffassign are already in the 'standard' default set
+  enable:
+    - errcheck        # Ensure errors are always handled
+    - staticcheck     # Comprehensive static analysis
+    - unused          # Detect unused code
+    - gocritic        # Code style improvements
+    - revive          # Go linting rules
+    - gosec           # Security checks
+    - misspell        # Typos in comments
+
+  settings:
+    revive:
+      rules:
+        - name: exported  # Public types must have doc comments
+
+    staticcheck:
+      checks:
+        - all
+        - -ST1000  # Disable package comment check (optional in monorepo)
+
+    errcheck:
+      check-type-assertions: true
+      check-blank: true
+
+    gosec:
+      excludes:
+        - G101  # Allow hardcoded credentials in non-production code
+
+  exclusions:
+    # Exclude generated files
+    generated: strict
+
+    # Predefined exclusion presets
+    presets:
+      - comments
+      - std-error-handling
+      - common-false-positives
+
+    # Custom exclusion rules
+    rules:
+      - path: _test\.go
+        linters:
+          - gosec
+          - errcheck
+          - gocritic
+
+      - path: _test\.go
+        text: "SA9003:"  # Skip empty branch warnings in tests
+
+      - path: migrations/
+        linters:
+          - gosec
+
+# Output configuration
+output:
+  formats:
+    text:
+      path: stdout
+      print-linter-name: true
+      colors: true
+  sort-order:
+    - linter
+    - severity
+    - file
+
+# Runtime options
+run:
+  timeout: 10m
+  tests: true
+  go: "1.26.2"
